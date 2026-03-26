@@ -7,31 +7,72 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button id="theme-toggle" class="theme-switcher" aria-label="Alternar tema" type="button">Modo Claro</button>
 
     <main>
         <section aria-label="Perfis Disponiveis" class="profiles-section">
             <h1>Quem está assistindo?</h1>
-            <nav class="profiles">
-                <a href="#" class="profile">
+            <ul class="profiles">
+                <li>
+                    <a href="#" class="profile">
                         <figure>
                             <img src="assets/perfil1.jpg" alt="Personagem melancólico de massinha de cartola e casaco remendado em um castelo torto">
                             <figcaption>Julia</figcaption>
                         </figure>
-                </a>
-                <a href="#" class="profile">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="profile">
                         <figure>
                             <img src="assets/perfil2.jpg" alt="Personagem de massinha steampunk com vestido de engrenagens e cartola de relógio">
                             <figcaption>Antônio</figcaption>
                         </figure>
-                </a>
-                <a href="#" class="profile">
-                    <figure>
-                        <img src="assets/perfil3.jpg" alt="Cenário subaquático de massinha com polvo azul, engrenagens e tesouro dourado">
-                        <figcaption>Maria Clara</figcaption>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="profile">
+                        <figure>
+                            <img src="assets/perfil3.jpg" alt="Cenário subaquático de massinha com polvo azul, engrenagens e tesouro dourado">
+                            <figcaption>Maria Clara</figcaption>
                         </figure>
-                </a>
-            </nav>
+                    </a>
+                </li>
+            </ul>
         </section>
     </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                body.classList.add('light-mode');
+                themeToggle.textContent = 'Modo Escuro';
+            } else {
+                body.classList.remove('light-mode');
+                themeToggle.textContent = 'Modo Claro';
+            }
+            localStorage.setItem('netflixTheme', theme);
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('netflixTheme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                applyTheme(savedTheme);
+                return;
+            }
+
+            const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            applyTheme(prefersLight ? 'light' : 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.contains('light-mode');
+            applyTheme(isLight ? 'dark' : 'light');
+        });
+
+        initTheme();
+    </script>
 </body>
 </html>
