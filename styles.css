@@ -7,6 +7,41 @@
     --shadow: 0 20px 40px rgba(0,0,0,.5);
     --radius: 12px;
 }
+
+body.light-mode {
+    --bg: #f2f2f2;
+    --bg-accent: #ffffff;
+    --text: #141414;
+    --text-muted: #555555;
+    --shadow: 0 12px 28px rgba(0,0,0,.15);
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .24s ease, color .24s ease, transform .2s ease;
+}
+
+body.light-mode .theme-switcher {
+    background: rgba(255, 255, 255, 0.65);
+    color: #141414;
+    border-color: rgba(0,0,0,.2);
+}
+
+.theme-switcher:hover {
+    transform: translateY(-1px);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,7 +61,15 @@ body {
     background: linear-gradient(180deg, #1b1b1b 0%, var(--bg) 40%, #050505 100%);
     background-attachment: fixed;
 }
-main {
+
+body.light-mode {
+    --bg: #f2f2f2;
+    --bg-accent: #ffffff;
+    --text: #141414;
+    --text-muted: #555555;
+    --shadow: 0 12px 28px rgba(0,0,0,.15);
+    background: linear-gradient(180deg, #f8f9fa 0%, #9b9b9b 55%, #f2f2f2 100%);
+}main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,12 +81,30 @@ main {
 section[aria-label="Perfis Disponiveis"] {
     width: min(100%, 980px);
 }
-nav.profiles {
+.profiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1.25rem;
     justify-items: center;
-    display: flex;
+}
+
+.profiles li {
+    width: 100%;
+    max-width: 180px;
+}
+
+.profile {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
 .profile {
     display: block;
@@ -101,11 +162,79 @@ nav.profiles {
     header {
         padding-top: 2rem;
     }
+    .profiles-section h1 {
+        font-size: 1.8rem;
+    }
     .profile {
         max-width: 100%;
+        transform: none;
     }
     .profile figcaption {
         font-size: 0.95rem;
         padding: 0.65rem 0.4rem;
     }
+    main {
+        padding: 1rem 0.75rem 1.5rem;
+    }
 }
+
+@media (min-width: 641px) and (max-width: 900px) {
+    body {
+        font-size: 0.95rem;
+    }
+    main {
+        max-width: 760px;
+        padding: 1.25rem 1rem 2rem;
+    }
+    .profiles-section h1 {
+        font-size: 2.2rem;
+    }
+    .profiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+    .profile {
+        max-width: 200px;
+    }
+    .profile img {
+        border-radius: calc(var(--radius) + 2px);
+    }
+}
+
+@media (min-width: 901px) {
+    .profiles {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1.25rem;
+        width: 100%;
+    }
+    .profiles li {
+        max-width: 220px;
+    }
+    .profile {
+        max-width: 220px;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 1rem;
+    }
+    main {
+        max-width: 980px;
+        padding: 1.5rem 1rem 2.5rem;
+    }
+    .profiles-section h1 {
+        font-size: 2.5rem;
+    }
+    .profiles {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.25rem;
+    }
+    .profile {
+        max-width: 220px;
+    }
+}
+
