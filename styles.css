@@ -9,11 +9,11 @@
 }
 
 body.light-mode {
-    --bg: #f2f2f2;
+    --bg: #f8fafb;
     --bg-accent: #ffffff;
-    --text: #141414;
-    --text-muted: #555555;
-    --shadow: 0 12px 28px rgba(0,0,0,.15);
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --shadow: 0 8px 16px rgba(0,0,0,.08);
 }
 
 .theme-switcher {
@@ -33,9 +33,9 @@ body.light-mode {
 }
 
 body.light-mode .theme-switcher {
-    background: rgba(255, 255, 255, 0.65);
-    color: #141414;
-    border-color: rgba(0,0,0,.2);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a1a2e;
+    border-color: rgba(0,0,0,.1);
 }
 
 .theme-switcher:hover {
@@ -63,12 +63,12 @@ body {
 }
 
 body.light-mode {
-    --bg: #f2f2f2;
+    --bg: #f8fafb;
     --bg-accent: #ffffff;
-    --text: #141414;
-    --text-muted: #555555;
-    --shadow: 0 12px 28px rgba(0,0,0,.15);
-    background: linear-gradient(180deg, #f8f9fa 0%, #9b9b9b 55%, #f2f2f2 100%);
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --shadow: 0 8px 16px rgba(0,0,0,.08);
+    background: linear-gradient(135deg, #f8fafb 0%, #eef2f7 50%, #f5f7fa 100%);
 }main {
     display: flex;
     justify-content: center;
