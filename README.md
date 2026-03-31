@@ -4,24 +4,24 @@ Projeto desenvolvido durante a Imersão Front-End da Alura com o objetivo de rec
 
 A aplicação simula a experiência inicial da plataforma, trazendo uma interface moderna, interativa e responsiva.
 
-## 🚀 Tecnologias
+## Tecnologias
 - HTML5  
 - CSS3  
 - JavaScript  
 - GitHub Pages  
 - GitHub Copilot (IA como suporte no desenvolvimento)
 
-## ✨ Funcionalidades
+## Funcionalidades
 - Tela de seleção de perfis inspirada na Netflix  
 - Alternância entre modo claro e escuro (dark/light mode)  
 - Layout responsivo (desktop, tablet e mobile)  
 - Interações dinâmicas com JavaScript   
 
-## 🌐 Deploy
+## Deploy
 Acesse o projeto:  
 👉 https://carolinnevictoria.github.io/imersao-frontend-netflix/
 
-## 📚 Aprendizados
+## Aprendizados
 - Estruturação semântica com HTML  
 - Estilização com CSS (Flexbox e responsividade)  
 - Manipulação do DOM com JavaScript  
